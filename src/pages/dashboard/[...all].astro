@@ -1,7 +1,7 @@
 ---
 import '@/styles/globals.css'
 import { App } from "../../components/App";
-import Layout from "../../layouts/Layout.astro";
+import SPALayout from "../../layouts/SPALayout.astro";
 import { supabase } from "@/lib/supabase";
 
 const accessToken = Astro.cookies.get("sb-access-token");
@@ -39,9 +39,9 @@ try {
 const email = session.data.user?.email;
 ---
 
-<Layout title="SPA Page">
+<SPALayout title="SPA Page">
     <form action="/api/auth/signout">
         <button type="submit">Sign out</button>
     </form>    
     <App client:only="react" />
-</Layout>
+</SPALayout>
